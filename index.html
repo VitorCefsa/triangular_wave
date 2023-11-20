@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="bt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <style type="text/css">
+   
+  </style>
+
+  <title>Triângular Passa Baixas</title>
+
+  
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./src/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+  <script src="./src/jquery-3.7.1.min.js"></script>
+  <script src="./src/popper.min.js"></script>
+  <script src="./src/js/bootstrap.min.js"></script>
+  <script src="./src/p5.min.js"></script>
+
+
+
+</head>
+
+<body style="background-color:#e6d3fd;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <a class="navbar-brand">Triângular Passa Baixas</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+    </div>
+
+  </nav>
+
+
+  <div class="parent">
+    <div id="sketch-holder"></div>
+
+
+    <table class="table">
+      <thead>
+        <tr class="table-light">
+          <th scope="col">Frequencia fundamental (f0) e de corte (fc):</th>
+          <th scope="col"></th>
+          <th scope="col" style="width: 5%"></th>
+          <th scope="col">Quantidade de Harmonicas:</th>
+          <th scope="col" style="width: 5%"></th>
+          <th scope="col">Tipo de Onda:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-light">
+
+          <td>
+            <p class="speed">Frequencia Fundamental:</p>
+            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50" style="width: 100%">
+            <p>Frequencia de Corte:</p>
+            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50" style="width: 100%">
+          </td>
+          <td class="align-middle">
+            <label id="label_speed" for="slider_speed">0.0000Hz</label>
+          </td>
+
+
+
+          <td>
+            <p class="amplitude"></p>
+
+          </td>
+          <td>
+            <p class="number_of_iterations"></p>
+            <input id="slider_itr" type="range" min="1" max="75" step="1" value="5" style="width: 100%">
+          </td>
+          <td class="align-middle">
+            <label id="label_itr" for="slider_speed">0</label>
+          </td>
+          <td><select class="form-control form-control-lg" id="presets" >
+            <option value="triangular">Sinal de Entrada</option>
+              <option value="triangular_amplitude">Amplitude da Entrada em Fourrier</option>
+              <option value="triangular_fase">Fase da Entrada em Fourrier</option>
+              <option value="triangular_ganho">Modulo de Ganho G(f) </option>
+              <option value="triangular_contribuicao">Contribuição da Fase ϕ(f) </option>
+              <option value="triangular_saida">Sinal Recebido (Saída)</option>
+              <option value="triangular_saida_amplitude">Amplitude da Saída em Fourrier</option>
+              <option value="triangular_saida_fase">Fase da Saída em Fourrier</option>
+            </select></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    <div class="accordion" id="accordionExample">
+     
+          <div class="card-header" id="heading_custom_wave">
+
+          </div>
+          <div >
+
+
+              <form id="Series">
+                <div class="form-row">
+                  <div><img src="soma.svg" alt=""></div>
+                  <div class="form-group col-md-4">
+                    <label for="numerator">Numerador (an)<font face="Symbol">a</font>:</label>
+                    <input type="text" name="numerator" id="numerator" class="form-control" value="4">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="denominator">Denominador (bn) <font face="Symbol">b</font>:</label>
+                    <input type="text" name="denominator" id="denominator" class="form-control" value="PI * ((2*n) + 1)">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="coefficient">Coeficiente (fase) <font face="Symbol">d</font>:</label>
+                    <input type="text" name="coefficient" id="coefficient" class="form-control" value="((2*n) + 1)">
+                  </div>
+                
+                </div>
+                <input id="submit" type="button" class="btn btn-primary" value="Acionar">
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+
+        <script src="./js/parameters.js"></script>
+
+        <script src="./js/main.js"></script>
+
+        <script src="./js/canvas.js"></script>
+
+        <script src="./js/grid.js"></script>
+
+        <script src="./js/eventListeners.js"></script>
+
+        <script src="./js/equationLogic.js"></script>
+
+
+        <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+        
+        
+
+</body>
+
+</html>
