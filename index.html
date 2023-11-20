@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <style type="text/css">
-   
+
   </style>
 
   <title>Triângular Passa Baixas</title>
 
-  
+
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./src/bootstrap-5.3.2-dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -45,9 +45,9 @@
       <thead>
         <tr class="table-light">
           <th scope="col">Frequencia fundamental (f0) e de corte (fc):</th>
-          <th scope="col" ></th>
+          <th scope="col"></th>
           <th scope="col">Quantidade de Harmonicas:</th>
-          <th scope="col" ></th>
+          <th scope="col"></th>
           <th scope="col">Tipo de Sinal:</th>
         </tr>
       </thead>
@@ -56,7 +56,7 @@
 
           <td>
             <p class="speed">Frequencia Fundamental:</p>
-            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50" >
+            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50">
 
           <td class="align-middle">
             <label id="label_speed" for="slider_speed">0.0000Hz</label>
@@ -64,30 +64,26 @@
 
           <td>
             <p class="number_of_iterations"></p>
-            <input id="slider_itr" type="range" min="1" max="75" step="1" value="5" >
+            <input id="slider_itr" type="range" min="1" max="75" step="1" value="5">
           </td>
           <td class="align-middle">
             <label id="label_itr" for="slider_speed">0</label>
           </td>
-          <td><select class="form-control form-control-lg" id="presets" >
-            <option value="triangular">Sinal de Entrada</option>
-              <option value="triangular_amplitude">Amplitude da Entrada em Fourrier</option>
-              <option value="triangular_fase">Fase da Entrada em Fourrier</option>
+          <td><select class="form-control form-control-lg" id="presets">
+              <option value="triangular">Sinal de Entrada</option>
               <option value="triangular_saida">Sinal Recebido (Saída)</option>
-              <option value="triangular_saida_amplitude">Amplitude da Saída em Fourrier</option>
-              <option value="triangular_saida_fase">Fase da Saída em Fourrier</option>
             </select></td>
         </tr>
         <tr class="table-light">
           <td>
-                        <p>Frequencia de Corte:</p>
+            <p>Frequencia de Corte:</p>
 
-            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50" >            
-    
-          
+            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50">
+
+
             <!-- Adicione um canvas para o gráfico -->
             <canvas id="frequencia_corte_canva" width="50px" height="20px"></canvas>
-          
+
             <script src="./js/canva_frequencia_corte.js"></script>
           </td>
           </td>
@@ -96,62 +92,62 @@
       <thead>
         <tr class="table-light">
           <th scope="col">Modulo de ganho de amplitude G(f):</th>
-          <th scope="col" ></th>
+          <th scope="col"></th>
           <th scope="col">Contribuição da fase ϕ(f):</th>
-          <th scope="col" ></th>
-          <th scope="col" ></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
-    <tbody>
+      <tbody>
 
-    </tbody>
-    <thead>
-      <tr class="table-light">
-        <th scope="col">Amplitude das Componentes:</th>
-        <th scope="col" ></th>
-        <th scope="col">Fase das Componentes:</th>
-        <th scope="col" ></th>
-        <th scope="col" ></th>
-      </tr>
-    </thead>
-  <tbody>
+      </tbody>
+      <thead>
+        <tr class="table-light">
+          <th scope="col">Amplitude das Componentes:</th>
+          <th scope="col"></th>
+          <th scope="col">Fase das Componentes:</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
 
-  </tbody>
+      </tbody>
     </table>
 
 
 
     <div class="accordion" id="accordionExample">
-     
-          <div class="card-header" id="heading_custom_wave">
+
+      <div class="card-header" id="heading_custom_wave">
 
 
 
 
-                
-                </div>
-                <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
-              </form>
+
+      </div>
+      <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
+      </form>
 
 
 
 
-        <script src="./js/parameters.js"></script>
+      <script src="./js/parameters.js"></script>
 
-        <script src="./js/main.js"></script>
+      <script src="./js/main.js"></script>
 
-        <script src="./js/canvas.js"></script>
+      <script src="./js/canvas.js"></script>
 
-        <script src="./js/grid.js"></script>
+      <script src="./js/grid.js"></script>
 
-        <script src="./js/eventListeners.js"></script>
+      <script src="./js/eventListeners.js"></script>
 
-        <script src="./js/equationLogic.js"></script>
+      <script src="./js/equationLogic.js"></script>
 
 
-        <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-        
-        
+      <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
 
