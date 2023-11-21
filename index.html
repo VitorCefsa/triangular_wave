@@ -23,148 +23,131 @@
 
 </head>
 
-<body style="background-color:#e6d3fd;">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body style="background-color:#f8f9fa;">
 
-    <a class="navbar-brand">Triângular Passa Baixas</a>
+  <header class="bg-dark text-light text-center py-3">
+    <h1>Ondas Triangulares</h1>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+  </header>
 
-      </ul>
-    </div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" href="#tab1">Página inicial</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="o_que_e_ontda_triangular.html">O que são as ondas Triangulares?</a>
+    </li>
+    <!-- Adicione mais abas conforme necessário -->
+  </ul>
 
-  </nav>
+  <!-- Conteúdo central -->
+  <div class="content">
 
-
-  <div class="parent">
-    <div id="sketch-holder"></div>
-
-
-    <table class="table">
-      <thead>
-        <tr class="table-light">
-          <th scope="col">Frequencia fundamental (f0) e de corte (fc):</th>
-          <th scope="col"></th>
-          <th scope="col">Quantidade de Harmonicas:</th>
-          <th scope="col"></th>
-          <th scope="col">Tipo de Sinal:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="table-light">
-
-          <td>
-            <p class="speed">Frequencia Fundamental:</p>
-            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50" oninput="updateChart()">
-
-          <td class="align-middle">
-            <label id="label_speed" for="slider_speed">0.0000Hz</label>
-          </td>
-
-          <td>
-            <p class="number_of_iterations"></p>
-            <input id="slider_itr" type="range" min="1" max="75" step="1" value="5">
-          </td>
-          <td class="align-middle">
-            <label id="label_itr" for="slider_speed">0</label>
-          </td>
-          <td><select class="form-control form-control-lg" id="presets">
-              <option value="triangular">Sinal de Entrada</option>
-              <option value="triangular_saida">Sinal Recebido (Saída)</option>
-            </select></td>
-        </tr>
-        <tr class="table-light">
-          <td>
-            <p>Frequencia de Corte:</p>
-
-            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50" oninput="updateWnRange()">
+    <div class="parent">
+      <div id="sketch-holder"></div>
 
 
-            <!-- Adicione um canvas para o gráfico -->
-            <canvas id="frequencia_corte_canva" width="50px" height="20px"></canvas>
+      <table class="table">
 
-          </td>
-          </td>
-        </tr>
-      </tbody>
-      <thead>
-        <tr class="table-light">
-          <th scope="col"></th>
-          <th scope="col">Modulo de ganho de amplitude G(f):</th>
-          <th scope="col">Contribuição da fase ϕ(f):</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <td>
+        <thead>
+          <tr class="table-light">
+            <th scope="col">Frequencia fundamental (f0) e de corte (fc):</th>
+            <th scope="col">Quantidade de Harmonicas:</th>
+            <th scope="col">Tipo de Sinal: </th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <tr class="table-light">
+            <!--  -->
+            <td>
+              <p class="speed">Frequencia Fundamental:</p>
+              <input id="slider_speed" type="range" min="0" max="100" step="1" value="50">
+
+              <label id="label_speed" for="slider_speed">0.0000Hz</label>
+            </td>
+            <!--  -->
+            <td>
+              <p class="number_of_iterations"></p>
+              <input id="slider_itr" type="range" min="1" max="75" step="1" value="5">
+
+              <label id="label_itr" for="slider_speed">0</label>
+            </td>
+            <td>
+              <select class="form-control form-control-lg" id="presets">
+                <option value="triangular">Sinal de Entrada Triangular</option>
+                <option value="triangular_saida">Sinal de Saída Triangular</option>
+              </select>
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr class="table-light">
+            <td>
+              <p>Frequencia de Corte:</p>
+              <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50">
+              <canvas id="frequencia_corte" width="500" height="200"></canvas>
+            </td>
+            </td>
+            <td><h2>O que é Frequência Natural, </h2><h2>Frequência de Corte e Harmônicas?</h2>
+
+              <p>
+                  <strong>Frequência Natural:</strong> Refere-se à taxa intrínseca de 
+                  </p><p>oscilação ou vibração de um sistema sem a aplicação de forças externas.
+              </p>
           
-          <div style="display: flex; flex-direction: column; align-items: center;">
-            <label for="wnRange">Frequencia Fundamental:</label>
-            <input type="range" id="wnRange" min="1" max="60" value="30" oninput="updateChart()">
-            <span id="wnValue">30</span>
-
-            <label for="wcRange">Frequência de Corte:</label>
-            <input type="range" id="wcRange" min="1" max="60" value="15" oninput="updateChart()">
-            <span id="wcValue">15</span>
-          </div>
-        </td>
-        <td>
-          <canvas id="gainChart" width="400" height="200"></canvas>
-        </td>
-        <td>
-          <canvas id="phaseChart" width="400" height="200"></canvas>
-        </td>
-       
-       
-      </tbody>
-      <thead>
-        <tr class="table-light">
-          <th scope="col"></th>
-          <th scope="col">Amplitude das Componentes:</th>
-          <th scope="col">Fase das Componentes:</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <td>
-
-        </td>
-        <td>
+              <p>
+                  <strong>Frequência de Corte:</strong> Em eletrônica e processamento de sinais, é o ponto </p><p>onde a resposta de um filtro começa a atenuar o sinal de entrada.
+              </p>
           
-        </td>
-        <td>
+              <p>
+                  <strong>Harmônicas:</strong> São múltiplos inteiros da frequência fundamental em um </p><p>sinal periódico, contribuindo para a complexidade da forma de onda.
+              </p>
+          
+              <h2>Sinal de Entrada e Sinal de Saída</h2>
+          
+              <p>
+                  Em sistemas eletrônicos e de controle, o <strong>sinal de entrada</strong> é a informação </p><p>fornecida ao sistema, processada para gerar o <strong>sinal de saída</strong>, que é a</p><p> resposta do sistema à entrada.
+              </p>
+          
+    
+             </td>
+           <td>
+            
+           </td>  
+          </tr>
 
-        </td>
-      </tbody>
-    </table>
+      </table>
+      
 
 
+      <div class="accordion" id="accordionExample">
 
-    <div class="accordion" id="accordionExample">
-
-      <div class="card-header" id="heading_custom_wave">
-
+        <div class="card-header" id="heading_custom_wave">
 
 
 
 
+
+        </div>
+        <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
+        </form>
+        <script src="./js/canva_frequencia_corte.js"></script>
+        <script src="./js/parameters.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/canvas.js"></script>
+        <script src="./js/grid.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
       </div>
-      <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
-      </form>
-
-      <script src="./js/canva_frequencia_corte.js"></script>
-      <script src="./js/canva_ganho_contribuicao.js"></script>
-      <script src="./js/parameters.js"></script>
-      <script src="./js/main.js"></script>
-      <script src="./js/canvas.js"></script>
-      <script src="./js/grid.js"></script>
-      <script src="./js/eventListeners.js"></script>
-      <script src="./js/equationLogic.js"></script>
-      <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-
+      <footer class="bg-dark text-light text-center py-3">
+        <p>Ondas Triangulares</p>
+      </footer>
 </body>
 
 </html>

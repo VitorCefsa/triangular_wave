@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Triângular Passa Baixas</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./src/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+    <!-- External Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./src/jquery-3.7.1.min.js"></script>
+    <script src="./src/popper.min.js"></script>
+    <script src="./src/js/bootstrap.min.js"></script>
+    <script src="./src/p5.min.js"></script>
+</head>
+
+<body style="background-color:#f8f9fa;">
+
+    <header class="bg-dark text-light text-center py-3">
+        <h1>Ondas Triangulares</h1>
+    </header>
+
+    <nav class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="index.html">Página inicial</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#tab1">O que são as ondas Triangulares?</a>
+        </li>
+        <!-- Add more tabs as needed -->
+    </nav>
+
+    <!-- Central Content -->
+    <div class="content">
+
+        <!-- Gain and Phase Charts -->
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th></th>
+                    <th>Modulo de ganho de amplitude G(f):</th>
+                    <th>Contribuição da fase ϕ(f):</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <label for="wnRange">Frequencia Fundamental:</label>
+                            <input type="range" id="wnRange" min="1" max="60" value="30" oninput="updateChart()">
+                            <span id="wnValue">30</span>
+
+                            <label for="wcRange">Frequência de Corte:</label>
+                            <input type="range" id="wcRange" min="1" max="60" value="15" oninput="updateChart()">
+                            <span id="wcValue">15</span>
+                        </div>
+                    </td>
+                    <td>
+                        <canvas id="gainChart" width="400" height="200"></canvas>
+                    </td>
+                    <td>
+                        <canvas id="phaseChart" width="400" height="200"></canvas>
+                    </td>
+                    <tr><h2>Módulo de Ganho de Amplitude e Contribuição da Fase</h2>
+
+                      <p>
+                          Em análise de Fourier, o módulo de ganho de amplitude refere-se à magnitude das componentes de frequência em uma onda. Quando uma onda é decomposta em suas componentes senoidais através da transformada de Fourier, o módulo de ganho de amplitude representa a intensidade ou a contribuição de cada componente de frequência para a forma geral da onda. É comumente representado graficamente como um espectro de magnitude.
+                      </p>
+                      
+                      <p>
+                          A fase em uma onda de Fourier indica o deslocamento temporal de cada componente de frequência em relação a uma referência. A contribuição da fase em uma onda de Fourier refere-se à informação sobre como as diferentes componentes de frequência estão sincronizadas no tempo para formar a onda resultante. A fase é frequentemente representada em termos de ângulos e pode influenciar significativamente a forma de onda, mesmo que as amplitudes (módulos de ganho) sejam as mesmas.
+                      </p>
+                      
+                      <p>
+                          Em resumo, o módulo de ganho de amplitude destaca a importância relativa das diferentes frequências em uma onda, enquanto a contribuição da fase fornece informações sobre o sincronismo temporal dessas frequências. Ambos são conceitos fundamentais na análise de sinais usando a transformada de Fourier.
+                      </p></tr>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Amplitude and Phase of Components Charts -->
+        <table class="table">
+            <thead class="table-light">
+                <tr>
+                    <th></th>
+                    <th>Amplitude das Componentes:</th>
+                    <th>Fase das Componentes:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                      <canvas id="meuGrafico" width="600%" height="200%"></canvas>
+                      <td></td>
+                    </td>
+                </tr>
+                <tr><h2>Fase das Componentes em uma Onda de Fourier</h2>
+
+                  <p>
+                      A fase em uma onda de Fourier descreve o deslocamento temporal de cada componente de frequência em relação a uma referência. Cada componente senoidal que compõe a onda possui uma fase específica, indicando em que ponto do ciclo sinusoidal ela começa. Esses deslocamentos temporais combinados determinam a forma final da onda resultante.
+                  </p>
+                  
+                  <p>
+                      Em termos mais simples, a fase controla a posição inicial de cada componente senoidal na onda, influenciando a maneira como elas se somam para formar o sinal completo. A representação da fase é frequentemente feita em termos de ângulos, e seu entendimento é crucial para analisar a temporalidade e a sincronização das diferentes frequências em uma onda de Fourier.
+                  </p>
+                  
+                  <h2>Amplitude das Componentes em uma Onda de Fourier</h2>
+                  
+                  <p>
+                      A amplitude das componentes em uma onda de Fourier refere-se à magnitude ou intensidade de cada componente de frequência. Quando uma onda é decomposta em suas partes senoidais, cada componente tem sua própria amplitude, representando a contribuição relativa dessa frequência específica para a forma geral da onda.
+                  </p>
+                  
+                  <p>
+                      Graficamente, o espectro de amplitude mostra a importância de cada componente, com as amplitudes mais altas indicando uma contribuição mais significativa. A amplitude influencia diretamente a altura das oscilações correspondentes no sinal final, sendo um fator crucial na representação e na interpretação das características de uma onda de Fourier.
+                  </p></tr>
+            </tbody>
+        </table>
+
+        <!-- Scripts for Charts -->
+        <script src="./js/componente_amplitude_fourrier.js"></script>
+        <script src="./js/canva_ganho_contribuicao.js"></script>
+        <script src="./js/parameters.js"></script>
+        <script src="./js/main.js"></script>
+        <script src="./js/canvas.js"></script>
+        <script src="./js/grid.js"></script>
+
+        <!-- Submit Button -->
+        
+        <!-- Bootstrap and Popper Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+        <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+        <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3">
+        <p>Ondas Triangulares</p>
+    </footer>
+</body>
+
+</html>

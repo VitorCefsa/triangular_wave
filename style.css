@@ -1,0 +1,38 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .navbar {
+    margin-bottom: 20px;
+  }
+
+  #sketch-holder {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .accordion,
+  .card-body {
+    width: 100%;
+  }
+
+  footer {
+    flex-shrink: 0; /* Impede que o footer seja reduzido para ajustar o conteúdo. */
+}
+.content {
+  flex: 1; /* Isso faz com que a div .content ocupe o espaço disponível. */
+}
