@@ -56,7 +56,7 @@
 
           <td>
             <p class="speed">Frequencia Fundamental:</p>
-            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50">
+            <input id="slider_speed" type="range" min="0" max="100" step="1" value="50" oninput="updateChart()">
 
           <td class="align-middle">
             <label id="label_speed" for="slider_speed">0.0000Hz</label>
@@ -78,40 +78,66 @@
           <td>
             <p>Frequencia de Corte:</p>
 
-            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50">
+            <input type="range" id="amplitudeSlider" min="0" max="1" step="0.1" value="50" oninput="updateWnRange()">
 
 
             <!-- Adicione um canvas para o gráfico -->
             <canvas id="frequencia_corte_canva" width="50px" height="20px"></canvas>
 
-            <script src="./js/canva_frequencia_corte.js"></script>
           </td>
           </td>
         </tr>
       </tbody>
       <thead>
         <tr class="table-light">
-          <th scope="col">Modulo de ganho de amplitude G(f):</th>
           <th scope="col"></th>
+          <th scope="col">Modulo de ganho de amplitude G(f):</th>
           <th scope="col">Contribuição da fase ϕ(f):</th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
+        <td>
+          
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <label for="wnRange">Frequencia Fundamental:</label>
+            <input type="range" id="wnRange" min="1" max="60" value="30" oninput="updateChart()">
+            <span id="wnValue">30</span>
 
+            <label for="wcRange">Frequência de Corte:</label>
+            <input type="range" id="wcRange" min="1" max="60" value="15" oninput="updateChart()">
+            <span id="wcValue">15</span>
+          </div>
+        </td>
+        <td>
+          <canvas id="gainChart" width="400" height="200"></canvas>
+        </td>
+        <td>
+          <canvas id="phaseChart" width="400" height="200"></canvas>
+        </td>
+       
+       
       </tbody>
       <thead>
         <tr class="table-light">
-          <th scope="col">Amplitude das Componentes:</th>
           <th scope="col"></th>
+          <th scope="col">Amplitude das Componentes:</th>
           <th scope="col">Fase das Componentes:</th>
           <th scope="col"></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
+        <td>
 
+        </td>
+        <td>
+          
+        </td>
+        <td>
+
+        </td>
       </tbody>
     </table>
 
@@ -129,25 +155,15 @@
       <input id="submit" type="button" class="btn btn-primary" hidden="true" value="Acionar">
       </form>
 
-
-
-
+      <script src="./js/canva_frequencia_corte.js"></script>
+      <script src="./js/canva_ganho_contribuicao.js"></script>
       <script src="./js/parameters.js"></script>
-
       <script src="./js/main.js"></script>
-
       <script src="./js/canvas.js"></script>
-
       <script src="./js/grid.js"></script>
-
       <script src="./js/eventListeners.js"></script>
-
       <script src="./js/equationLogic.js"></script>
-
-
       <script src="./src/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
-
-
 
 </body>
 
