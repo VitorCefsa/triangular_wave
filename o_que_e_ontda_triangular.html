@@ -103,11 +103,11 @@
         <tr>
           <td>
             <div style="display: flex; flex-direction: column; align-items: center;">
-              <label for="wnRange">Frequencia Fundamental:</label>
+              <label for="wnRange">Frequencia Fundamental (Hz):</label>
               <input type="range" id="wnRange" class="form-range" min="1" max="60" value="30" oninput="updateChart()">
-              <span id="wnValue">30Hz</span>
+              <span id="wnValue">30</span>
 
-              <label for="wcRange">Frequência de Corte:</label>
+              <label for="wcRange">Frequência de Corte (Hz):</label>
               <input type="range" id="wcRange" class="form-range" min="1" max="60" value="15" oninput="updateChart()">
               <span id="wcValue">15Hz</span>
             </div>
@@ -144,7 +144,7 @@
       <tbody>
         <tr>
           <td>
-            <label for="controleIntensidade">Controle de Intensidade:</label>
+            <label for="controleIntensidade">Controle de Intensidade (%):</label>
             <input type="range" id="controleIntensidade" class="form-range" min="0" max="100" value="100" step="1" />
           </td>
           <td>
