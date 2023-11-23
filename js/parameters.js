@@ -1,6 +1,6 @@
 // Parameters: Window
-let wi_heigth = 300;
-let wi_width = 100;
+let wi_heigth = 402;
+let wi_width = 600;
 let wi_background_color = "#ffffff";
 let wi_line_color = "#262626";
 let wi_circle_color = "#262626";
